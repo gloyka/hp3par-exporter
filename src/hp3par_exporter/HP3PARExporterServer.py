@@ -29,7 +29,7 @@ class HP3PARExporterServer(object):
         # load yaml config
         if os.path.isfile(self.config):
             with open(self.config, "r") as f:
-                self.yaml_config = yaml.load(f)
+                self.yaml_config = yaml.full_load(f)
 
         server = ForkingHTTPServer((self._address, self._port), RequestHandler)
         server.endpoint = self.endpoint
